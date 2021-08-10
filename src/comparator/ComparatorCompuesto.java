@@ -4,7 +4,7 @@ import competidores.Enfrentable;
 
 import java.util.ArrayList;
 
-public class ComparatorCompuesto {
+public class ComparatorCompuesto implements Comparator<Enfrentable>{
     private ArrayList<Comparator> comparators;
 
     public ArrayList<Comparator> getComparators() {
@@ -34,4 +34,8 @@ public class ComparatorCompuesto {
     }
 
 
+    @Override
+    public int compare(Enfrentable e1, Enfrentable e2) {
+        return 0;
+    }
 }

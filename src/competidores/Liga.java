@@ -2,7 +2,8 @@ package competidores;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.reducing;
 
 public class Liga extends Enfrentable {
     private List<Enfrentable> integrantes;
@@ -19,7 +20,9 @@ public class Liga extends Enfrentable {
 
     @Override
     public float getValorAtributo(String key) {
-        return 0;
+        float valor = 0;
+        for (Enfrentable e : integrantes) valor += e.getValorAtributo(key);
+        return valor;
     }
 
     @Override
@@ -31,7 +34,11 @@ public class Liga extends Enfrentable {
         return integrantes;
     }
 
-    public void addIntegrante(Enfrentable e) { this.integrantes.add(e); }
+    public void addIntegrante(Enfrentable e) {
+        this.integrantes.add(e);
+    }
 
-    public void deleteIntegrante(Enfrentable e) { this.integrantes.remove(e); }
+    public void deleteIntegrante(Enfrentable e) {
+        this.integrantes.remove(e);
+    }
 }

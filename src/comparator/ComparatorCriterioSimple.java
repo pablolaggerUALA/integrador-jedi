@@ -1,6 +1,8 @@
 package comparator;
 
-public class ComparatorCriterioSimple {
+import competidores.Enfrentable;
+
+public class ComparatorCriterioSimple implements Comparator<Enfrentable>{
     private String atributo;
 
     public String getAtributo() {
@@ -11,4 +13,9 @@ public class ComparatorCriterioSimple {
         this.atributo = atributo;
     }
 
+
+    @Override
+    public int compare(Enfrentable e1, Enfrentable e2) {
+        return 0;
+    }
 }

@@ -16,16 +16,14 @@ public class Personaje extends Enfrentable {
 
     @Override
     public float getValorAtributo(String key) {
-        /*
-         Map<Integer, String> atributo = atributos.entrySet()
-                .stream().filter(x->x.getKey().equals(key))
-                .collect(Collectors.toCollection());
-         */
-       return 0;
+        for(String k:atributos.keySet()){
+            if (k.equals(key)) return atributos.get(k).getValor(this);
+        }
+        return 0; //caso cuando no encuentra el valor solicitado.
     }
 
     @Override
     protected List<Personaje> getPersonajes() {
-        return null;
+        return (List<Personaje>) this;
     }
 }

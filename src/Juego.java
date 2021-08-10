@@ -1,17 +1,16 @@
-import comparator.Comparator;
 import competidores.Enfrentable;
+import competidores.Personaje;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Juego {
-    private ArrayList<Enfrentable> enfrentables = new ArrayList<>();
+    private List<Enfrentable> enfrentables = new ArrayList<>();
 
-    public Juego(ArrayList<Enfrentable> enfrentables) {
-        this.enfrentables = enfrentables;
-    }
+    public Juego(){}
 
-    public ArrayList<Enfrentable> getEnfrentables() {
+    public List<Enfrentable> getEnfrentables() {
         return enfrentables;
     }
 
@@ -19,6 +18,21 @@ public class Juego {
         this.enfrentables = enfrentables;
     }
 
+    public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator c){
+
+    }
+
+    public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2){
+
+    }
+
+    public boolean addEnfrentable(Enfrentable e){
+        return this.enfrentables.add(e);
+
+    }
+
+    public List<Personaje> ordenarPersonajes(Comparator c){
+    }
 
 
 }
