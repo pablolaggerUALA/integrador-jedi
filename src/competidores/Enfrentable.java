@@ -16,8 +16,6 @@ public abstract class Enfrentable {
         this.nombreFantasia = nombreFantasia;
     }
 
-
-
     public String getNombre() {
         return nombre;
     }
@@ -34,11 +32,11 @@ public abstract class Enfrentable {
         this.nombreFantasia = nombreFantasia;
     }
 
-    public Enfrentable enfrentar(Enfrentable e, Comparator c) {
+    public Enfrentable enfrentar(Enfrentable e, Comparator<Enfrentable> c) {
         return this.enfrentar(e,c);
     }
 
-    public List<Personaje> ordenar(Comparator c) {
+    public List<Personaje> ordenar(Comparator<Enfrentable> c) {
         return ordenar(c).stream().toList();
         //        return this.ordenar(c);
     }

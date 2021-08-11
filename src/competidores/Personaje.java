@@ -1,11 +1,10 @@
 package competidores;
 
-import interfaces.Atributo;
+import atributos.Atributo;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Personaje extends Enfrentable {
     Map<String, Atributo> atributos = new HashMap<String, Atributo>();

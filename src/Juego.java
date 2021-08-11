@@ -18,27 +18,22 @@ public class Juego {
         this.enfrentables = enfrentables;
     }
 
-    public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator c) {
+    public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator<Enfrentable> c) {
         return null;
     }
 
-
-    public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2, Comparator c) {
+    public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2, Comparator<Enfrentable> c) {
         if (e1.getValorAtributo("key1") < e2.getValorAtributo("key2"))
             return e1;
         else
             return e2;
-
     }
-//No se que pingo hice ni como llegue a eso
+
     public boolean addEnfrentable(Enfrentable e) {
-        return this.enfrentables.add(e);
-
+        return enfrentables.add(e);
     }
 
-    public List<Personaje> ordenarPersonajes(Comparator c) {
-
-        return ordenarPersonajes(c).stream().toList();
-
+    public List<Personaje> ordenarPersonajes(Comparator<Enfrentable> c) {
+        return enfrentables.stream().toList();
     }
 }

@@ -5,6 +5,8 @@ import competidores.Enfrentable;
 public class ComparatorCriterioSimple implements Comparator<Enfrentable> {
     private String atributo;
 
+    public ComparatorCriterioSimple(String atributo) { this.atributo = atributo; }
+
     public String getAtributo() {
         return atributo;
     }
@@ -13,9 +15,10 @@ public class ComparatorCriterioSimple implements Comparator<Enfrentable> {
         this.atributo = atributo;
     }
 
-
     @Override
     public int compare(Enfrentable e1, Enfrentable e2) {
-        return 0;
+        float atr1 = e1.getValorAtributo(atributo);
+        float atr2 = e2.getValorAtributo(atributo);
+        return Float.compare(atr1, atr2);
     }
 }

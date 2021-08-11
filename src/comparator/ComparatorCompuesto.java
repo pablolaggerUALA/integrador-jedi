@@ -3,36 +3,27 @@ package comparator;
 import competidores.Enfrentable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ComparatorCompuesto implements Comparator<Enfrentable> {
-    private ArrayList<Comparator> comparators;
+    private List<Comparator<Enfrentable>> comparators;
 
-    public ArrayList<Comparator> getComparators() {
-        return comparators;
+    public void ComparadorCompuesto() {
+        this.comparators = new ArrayList<>();
     }
 
-    public void setComparators(ArrayList<Comparator> comparators) {
-        this.comparators = comparators;
+    public void ComparadorCompuesto(List<Comparator<Enfrentable>> comparators) {
+        this.comparators = new ArrayList<>(comparators);
     }
 
-    public ComparatorCompuesto(ArrayList<Comparator> comparators) {
-        this.comparators = comparators;
+    public boolean addComparadorCompuesto(Comparator<Enfrentable> c) {
+        return comparators.add(c);
     }
 
-    public void ComparadorCompuesto(){};
-
-    public void ComparadorCompuesto(ArrayList comparators){};
-
-    public boolean AddComparadorCompuesto(Comparator c){
-        return this.AddComparadorCompuesto(c);
-
+    public boolean addComparadorCompuesto(Comparator<Enfrentable> c, int index) {
+        comparators.add(index, c);
+        return true;
     }
-
-    public boolean AddComparadorCompuesto(Comparator c, int index){
-        return this.AddComparadorCompuesto(c,index);
-
-    }
-
 
     @Override
     public int compare(Enfrentable e1, Enfrentable e2) {

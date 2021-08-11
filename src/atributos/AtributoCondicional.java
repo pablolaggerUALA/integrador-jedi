@@ -1,7 +1,6 @@
 package atributos;
 
 import competidores.Enfrentable;
-import interfaces.Atributo;
 
 public class AtributoCondicional implements Atributo {
     private String key1;
