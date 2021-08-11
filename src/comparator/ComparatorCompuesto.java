@@ -4,7 +4,7 @@ import competidores.Enfrentable;
 
 import java.util.ArrayList;
 
-public class ComparatorCompuesto implements Comparator<Enfrentable>{
+public class ComparatorCompuesto implements Comparator<Enfrentable> {
     private ArrayList<Comparator> comparators;
 
     public ArrayList<Comparator> getComparators() {
@@ -28,7 +28,7 @@ public class ComparatorCompuesto implements Comparator<Enfrentable>{
 
     }
 
-    public boolean AddComparadorCompuesto(Comparator c,int index){
+    public boolean AddComparadorCompuesto(Comparator c, int index){
         return this.AddComparadorCompuesto(c,index);
 
     }

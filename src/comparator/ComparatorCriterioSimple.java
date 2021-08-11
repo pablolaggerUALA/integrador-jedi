@@ -2,7 +2,7 @@ package comparator;
 
 import competidores.Enfrentable;
 
-public class ComparatorCriterioSimple implements Comparator<Enfrentable>{
+public class ComparatorCriterioSimple implements Comparator<Enfrentable> {
     private String atributo;
 
     public String getAtributo() {
