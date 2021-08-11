@@ -34,7 +34,7 @@ public class Juego {
     public List<Personaje> ordenarPersonajes(Comparator c) {
         List<Personaje> personajes = new ArrayList<Personaje>();
         getEnfrentables().forEach(e -> personajes.addAll(e.getPersonajes()));
-        personajes.sort(c);
+        //personajes.sort(c);
         return personajes;
     }
 }

@@ -14,6 +14,11 @@ public class Personaje extends Enfrentable {
         super(nombre, nombreFantasia);
     }
 
+    public boolean addAtributo(String k, Atributo a) {
+        atributos.put(k,a);
+        return true;
+    }
+
     @Override
     public float getValorAtributo(String key) {
         for(String k:atributos.keySet()){
