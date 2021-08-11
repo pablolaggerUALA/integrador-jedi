@@ -4,6 +4,7 @@ import competidores.Enfrentable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ComparatorCompuesto implements Comparator<Enfrentable> {
     private List<Comparator<Enfrentable>> comparators;
@@ -27,6 +28,8 @@ public class ComparatorCompuesto implements Comparator<Enfrentable> {
 
     @Override
     public int compare(Enfrentable e1, Enfrentable e2) {
+        for (Comparator<Enfrentable> c : comparators)
+            return c.compare(e1, e2);
         return 0;
     }
 }

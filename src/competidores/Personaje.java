@@ -2,6 +2,7 @@ package competidores;
 
 import atributos.Atributo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,9 @@ public class Personaje extends Enfrentable {
     }
 
     @Override
-    protected List<Personaje> getPersonajes() {
-        return (List<Personaje>) this;
+    public List<Personaje> getPersonajes() {
+        List<Personaje> personaje = new ArrayList<>();
+        personaje.add(this);
+        return personaje;
     }
 }

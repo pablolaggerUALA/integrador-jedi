@@ -32,17 +32,17 @@ public abstract class Enfrentable {
         this.nombreFantasia = nombreFantasia;
     }
 
-    public Enfrentable enfrentar(Enfrentable e, Comparator<Enfrentable> c) {
+    public Enfrentable enfrentar(Enfrentable e, Comparator c) {
         return this.enfrentar(e,c);
     }
 
-    public List<Personaje> ordenar(Comparator<Enfrentable> c) {
+    public List<Personaje> ordenar(Comparator c) {
         return ordenar(c).stream().toList();
         //        return this.ordenar(c);
     }
     public abstract float getValorAtributo(String key);
 
-    protected abstract List<Personaje> getPersonajes();
+    public abstract List<Personaje> getPersonajes();
 
 
 }

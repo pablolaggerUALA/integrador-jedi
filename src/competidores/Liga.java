@@ -26,7 +26,7 @@ public class Liga extends Enfrentable {
     }
 
     @Override
-    protected List<Personaje> getPersonajes() {
+    public List<Personaje> getPersonajes() {
         return getPersonajes();
     }
 
