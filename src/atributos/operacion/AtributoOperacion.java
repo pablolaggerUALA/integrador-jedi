@@ -1,7 +1,7 @@
 package atributos.operacion;
 
 import competidores.Enfrentable;
-import interfaces.Atributo;
+import atributos.Atributo;
 
 public abstract class AtributoOperacion implements Atributo {
     protected String key1;

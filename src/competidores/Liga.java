@@ -26,8 +26,10 @@ public class Liga extends Enfrentable {
     }
 
     @Override
-    protected List<Personaje> getPersonajes() {
-        return null;
+    public List<Personaje> getPersonajes() {
+        List<Personaje> personajes = new ArrayList<>();
+        getIntegrantes().forEach(e -> personajes.addAll(e.getPersonajes()));
+        return personajes;
     }
 
     public List<Enfrentable> getIntegrantes() {

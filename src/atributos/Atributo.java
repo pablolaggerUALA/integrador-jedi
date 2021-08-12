@@ -1,4 +1,4 @@
-package interfaces;
+package atributos;
 
 import competidores.Enfrentable;
 

@@ -1,38 +1,45 @@
+import java.util.Comparator;
 import competidores.Enfrentable;
 import competidores.Personaje;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Juego {
-    private List<Enfrentable> enfrentables = new ArrayList<>();
+    private List<Enfrentable> enfrentables;
 
-    public Juego(){}
+    public void setEnfrentables(List<Enfrentable> enfrentables) {
+        this.enfrentables = enfrentables;
+    }
+
+    public Juego() {
+        enfrentables = new ArrayList<>();
+    }
 
     public List<Enfrentable> getEnfrentables() {
         return enfrentables;
     }
 
-    public void setEnfrentables(ArrayList<Enfrentable> enfrentables) {
-        this.enfrentables = enfrentables;
-    }
+    public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator c) {
+        return null;
 
-    public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator c){
-
-    }
-
-    public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2){
 
     }
 
-    public boolean addEnfrentable(Enfrentable e){
-        return this.enfrentables.add(e);
-
+    public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2, Comparator c) {
+        if (c.compare(e1, e2) > 0)
+            return e1;
+        else
+            return e2;
     }
 
-    public List<Personaje> ordenarPersonajes(Comparator c){
+    public boolean addEnfrentable(Enfrentable e) {
+        return enfrentables.add(e);
     }
 
-
+    public List<Personaje> ordenarPersonajes(Comparator comparator) {
+        List<Personaje> personajes = new ArrayList<>();
+        getEnfrentables().forEach(e -> personajes.addAll(e.getPersonajes()));
+        personajes.sort(comparator);
+        return personajes;
+    }
 }

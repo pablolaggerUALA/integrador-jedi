@@ -1,8 +1,7 @@
 package competidores;
 
-import comparator.Comparator;
 
-import java.util.List;
+import java.util.*;
 
 public abstract class Enfrentable {
     protected String nombre;
@@ -30,16 +29,20 @@ public abstract class Enfrentable {
     }
 
     public Enfrentable enfrentar(Enfrentable e, Comparator c) {
-        return null;
+        if (c.compare(this, e) > 0){
+            return this;
+        }
+        return e;
     }
 
     public List<Personaje> ordenar(Comparator c) {
-        return null;
+        List<Personaje> personajes = this.getPersonajes();
+        personajes.sort(c);
+        return personajes;
     }
-
     public abstract float getValorAtributo(String key);
 
-    protected abstract List<Personaje> getPersonajes();
+    public abstract List<Personaje> getPersonajes();
 
 
 }
