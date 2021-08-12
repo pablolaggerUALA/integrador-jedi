@@ -15,13 +15,13 @@ public class Personaje extends Enfrentable {
     }
 
     public boolean addAtributo(String k, Atributo a) {
-        atributos.put(k,a);
+        atributos.put(k, a);
         return true;
     }
 
     @Override
     public float getValorAtributo(String key) {
-        for(String k:atributos.keySet()){
+        for (String k : atributos.keySet()) {
             if (k.equals(key)) return atributos.get(k).getValor(this);
         }
         return 0; //caso cuando no encuentra el valor solicitado.

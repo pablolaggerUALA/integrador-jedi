@@ -2,9 +2,7 @@ package comparator;
 
 import competidores.Enfrentable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class ComparatorCompuesto implements Comparator<Enfrentable> {
     private List<Comparator<Enfrentable>> comparators;
@@ -18,18 +16,25 @@ public class ComparatorCompuesto implements Comparator<Enfrentable> {
     }
 
     public boolean addComparadorCompuesto(Comparator<Enfrentable> c) {
-        return comparators.add(c);
+        if (c != null)
+            return comparators.add(c);
+        else return false;
     }
 
     public boolean addComparadorCompuesto(Comparator<Enfrentable> c, int index) {
-        comparators.add(index, c);
-        return true;
+        if (c != null){
+            comparators.add(index, c);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public int compare(Enfrentable e1, Enfrentable e2) {
-        for (Comparator<Enfrentable> c : comparators)
-            return c.compare(e1, e2);
+        for (Comparator<Enfrentable> c : comparators) {
+            int x = c.compare(e1, e2);
+            if (x != 0) return x;
+        }
         return 0;
     }
 }
