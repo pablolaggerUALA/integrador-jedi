@@ -24,6 +24,8 @@ public class JuegoTest {
 
     @After
     public void tearDown() throws Exception {
+        juego = null;
+        personajeTest = null;
     }
 
     @Test

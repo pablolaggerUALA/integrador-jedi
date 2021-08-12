@@ -21,14 +21,16 @@ public class Juego {
 
     public List<Enfrentable> getQuienesVencen(Enfrentable e, Comparator c) {
         return null;
-
-
     }
 
     public Enfrentable enfrentar(Enfrentable e1, Enfrentable e2, Comparator c) {
-        if (c.compare(e1, e2) > 0)
+        int ganador = c.compare(e1, e2);
+        if (ganador > 0){
             return e1;
-        else
+        } else if (ganador == 0){
+            System.out.println("Hubo empate");
+            return null;
+        } else
             return e2;
     }
 

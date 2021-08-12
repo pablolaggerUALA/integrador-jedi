@@ -29,10 +29,14 @@ public abstract class Enfrentable {
     }
 
     public Enfrentable enfrentar(Enfrentable e, Comparator c) {
-        if (c.compare(this, e) > 0){
+        int ganador = c.compare(this, e);
+        if (ganador > 0){
             return this;
-        }
-        return e;
+        } else if (ganador == 0){
+            System.out.println("Hubo empate");
+            return null;
+        } else
+            return e;
     }
 
     public List<Personaje> ordenar(Comparator c) {

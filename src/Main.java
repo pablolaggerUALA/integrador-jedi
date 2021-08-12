@@ -14,11 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
         //Instanciamiento de atributos
-        Atributo fuerzaP1 = new AtributoSimple(10);
+
         Atributo velocidadP1 = new AtributoSimple(20);
         Atributo fuerzaP2 = new AtributoSimple(5);
         Atributo velocidadP2 = new AtributoSimple(10);
-        AtributoMultiplicacion atrOp1 = new AtributoMultiplicacion("fuerza","velocidad");
 
         ComparatorNombre comparator = new ComparatorNombre();
         ComparatorCriterioSimple comparatorSimple = new ComparatorCriterioSimple("fuerza");
@@ -33,10 +32,10 @@ public class Main {
         Personaje p4 = new Personaje("asdf", "NombreFanasdfasdftasiaPersonaje2");
         Personaje p3 = new Personaje("NombrePersonaje3", "NombreFantasiaPersonaje3");
 
-        p1.addAtributo("fuerza", fuerzaP1);
+        p1.addAtributo("fuerza", new AtributoSimple(10));
         p1.addAtributo("velocidad", velocidadP1);
-        p1.addAtributo("fuerzaVelocidad", atrOp1);
-        p2.addAtributo("fuerza", fuerzaP2);
+        p1.addAtributo("fuerzaVelocidad", new AtributoMultiplicacion("fuerza", "velocidad"));
+        p2.addAtributo("fuerza", new AtributoSimple(5));
         p2.addAtributo("velocidad", velocidadP2);
 
         Juego juego = new Juego();
@@ -48,8 +47,7 @@ public class Main {
         System.out.println("\nMostramos los personajes ordenados del objeto Juego");
         List<Personaje> enfrentables = juego.ordenarPersonajes(comparator);
         for (Personaje e : enfrentables) {
-            System.out.println(e.getNombre()
-            );
+            System.out.println(e.getNombre());
         }
 
         //Creando ligas
@@ -64,10 +62,16 @@ public class Main {
             System.out.println(p.getNombre());
         }
 
-        System.out.println("\nGanador por ComparatorNombre: " + p1.enfrentar(p2, comparator).getNombre());
-        System.out.println("Ganador por ComparatorNombre: " + p2.enfrentar(p1, comparator).getNombre());
-        System.out.println("Ganador por ComparatorCriterioSimple: " + p2.enfrentar(p1, comparatorSimple).getNombre());
-        System.out.println("Ganador por ComparatorSimpleOperacional: " + p2.enfrentar(p1, comparatorSimpleOperacional).getNombre());
+        try {
+            System.out.println("\nGanador por ComparatorNombre juego: " + juego.enfrentar(p1, p2, comparator).getNombre());
+            System.out.println("\nGanador por ComparatorNombre: " + p1.enfrentar(p2, comparator).getNombre());
+            System.out.println("Ganador por ComparatorNombre: " + p2.enfrentar(p1, comparator).getNombre());
+            System.out.println("Ganador por ComparatorCriterioSimple: " + p2.enfrentar(p1, comparatorSimple).getNombre());
+            System.out.println("Ganador por ComparatorSimpleOperacional: " + p2.enfrentar(p1, new ComparatorCriterioSimple("fuerzaVelocidad")).getNombre());
+        } catch (Exception e) {
+            System.out.println("Fallo " + e.getMessage());
+        }
+
         //System.out.println("Ganador por ComparatorCompuesto: " + p2.enfrentar(p1, comparatorCompuesto).getNombre());
 
     }
